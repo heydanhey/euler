@@ -50,6 +50,21 @@ class Euler
     sum
   end
 
-
+  def self.smallest_multiple(input)
+    lowest = input
+    step = 0
+    found = false
+    until found
+      step = step + 1
+      [*1..input].each_with_index do |n, i|
+        if lowest % n != 0
+          lowest = input * step
+          break
+        end
+        found = true if i == input - 1
+      end
+    end
+    lowest
+  end
 
 end
