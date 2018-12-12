@@ -9,7 +9,7 @@ class Euler
     prev = 0
     current = 1
     while current < input
-      sum += current if current.even?  
+      sum += current if current.even?
       temp = prev + current;
       prev = current
       current = temp
@@ -21,11 +21,11 @@ class Euler
     i = 2
     while i < n
       if (n % i) == 0
-        return false 
+        return false
       end
       i += 1
     end
-    n != 1;
+    n != 1
   end
 
   def self.count_primes(count)
@@ -65,6 +65,23 @@ class Euler
       end
     end
     lowest
+  end
+
+  def self.pythagorean_triplet?(a, b, c)
+    a ^ 2 + b ^ 2 == c ^ 2
+  end
+
+  def self.find_pythagorean_triplet_sum(sum)
+    run_limit = 10000
+
+    for a in 1..run_limit do
+      for b in 2..run_limit do
+        c = Math.sqrt((a**2) + (b**2))
+        return [a, b, c.to_i] if [a, b, c].sum == sum
+      end
+    end
+
+    'No Pythagorean Triplet'
   end
 
 end
