@@ -63,9 +63,12 @@ class EulerTest < Minitest::Test
   end
 
   def test_find_pythagorean_triplet_sum
+    skip
     assert_equal([200, 375, 425], Euler.find_pythagorean_triplet_sum(1000))
   end
 
-
+  def test_summation_of_primes
+    assert_equal(17, Euler.summation_of_primes(10))
+  end
 
 end

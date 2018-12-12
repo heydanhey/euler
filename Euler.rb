@@ -84,4 +84,12 @@ class Euler
     'No Pythagorean Triplet'
   end
 
+  def self.summation_of_primes(input)
+    primes = [*2...input]
+    [*2...Math.sqrt(input)].each do |n|
+      primes = primes.reject { |p| n != p && p % n == 0 }
+    end
+    primes.sum
+  end
+
 end
